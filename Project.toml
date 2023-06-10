@@ -1,0 +1,19 @@
+name = "BaseAdd"
+uuid = "a0b5c6e2-5b8a-11e9-0e1a-2b1f9a1a10e6"
+version = "0.1.0"
+
+[deps]
+
+[weakdeps]
+CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+
+[extensions]
+BaseAddExt = "CUDA"
+
+[extras]
+CUDA = "052768ef-5323-5732-b1bb-66c8b64840ba"
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+BenchmarkTools = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
+
+[targets]
+test = ["CUDA", "Test", "BenchmarkTools"]
