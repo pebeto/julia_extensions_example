@@ -1,19 +1,12 @@
 module BaseAdd
 
-function add!(y, x)
-    for i in eachindex(y::Array, x::Array)
+function add(y::Array, x::Array)
+    for i in eachindex(y, x)
         @inbounds y[i] += x[i]
     end
-    return nothing
+    return y
 end
 
-function add_parallel!(y::Array, x::Array)
-    Threads.@threads for i in eachindex(y, x)
-        @inbounds y[i] += x[i]
-    end
-    return nothing
-end
-
-export add!, add_parallel!
+export add
 
 end

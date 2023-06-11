@@ -9,8 +9,10 @@ using BenchmarkTools
 
     x = fill(1.0f0, N)
     y = fill(2.0f0, N)
+    
+    x_cu = CuArray(x)
+    y_cu = CuArray(y)
 
-    @btime add!($y, $x)
-    @btime add_parallel!($y, $x)
-    @btime add!($(CuArray(y)), $(CuArray(x)))
+    @test add(y, x) |> typeof <: Array
+    @test add(y_cu, x_cu) |> typeof <: CuArray
 end
